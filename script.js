@@ -69,7 +69,7 @@ submitButton.addEventListener("click", function (event) {
     .attr("class", "point")
     .attr("class", "newCircle");
 
-  newCircles = document.querySelectorAll(".newCircle");
+  let newCircles = document.querySelectorAll(".newCircle");
   for (let i = 0; i < newCircles.length; i++) {
     newCircles[i].addEventListener("click", lastClicked);
   }
@@ -167,6 +167,7 @@ d3.csv("data/bar-data.csv").then(function (data) {
     .data(data)
     .enter()
     .append("rect")
+    .attr("id", function (d) { return d.amount; })
     .attr("class", "bar")
     .attr("x", function (d) {
       return xScale(d.category);
@@ -181,7 +182,7 @@ d3.csv("data/bar-data.csv").then(function (data) {
     .on("mouseover", function (d, i) {
       d3.select(this).attr("class", "highlight");
       tooltip
-        .html(`Amount: ${this.getAttribute("x")}`)
+        .html(`Amount: ${this.getAttribute("id")}`)
         .style("visibility", "visible");
     })
     .on("mousemove", function (d) {
