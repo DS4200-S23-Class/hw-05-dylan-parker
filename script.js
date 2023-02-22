@@ -90,25 +90,6 @@ function lastClicked() {
   document.getElementById("right_col_text").innerHTML = newText;
 }
 
-// for (let i = 0; i < round.length; i++) {
-//   console.log("hi");
-//   round[i].addEventListener("click", function () {
-//     this.classList.toggle("selected");
-
-// const x = xInput.value;
-// const y = yInput.value;
-
-// let newText =
-//   "Last point clicked: (" +
-//   Math.round((x - 10) / 50) +
-//   ", " +
-//   Math.round(Math.abs(y - 510) / 50) +
-//   ")";
-
-// document.getElementById("right_col_text").innerHTML = newText;
-//   });
-// }
-
 var svg = d3.select(".svg2"),
   margin = 200,
   width = svg.attr("width") - margin,
