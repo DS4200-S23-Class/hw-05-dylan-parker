@@ -21,16 +21,23 @@ body {
   flex-direction: row;
 }
 
-.point:hover {
-  fill: blue;
-}
-
 .form {
   padding-top: 50px;
   display: flex;
 }
 
+.point:hover {
+  fill: blue;
+}
 .point.selected {
+  stroke-width: 3px;
+  stroke: orange;
+}
+
+.newCircle:hover {
+  fill: blue;
+}
+.newCircle.selected {
   stroke-width: 3px;
   stroke: orange;
 }

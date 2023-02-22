@@ -36,7 +36,8 @@ d3.csv("data/scatter-data.csv").then((data) => {
       return Y_SCALE(d.y) + MARGINS.left;
     })
     .attr("r", 20)
-    .attr("class", "point");
+    .attr("class", "point")
+    .on("click", lastClicked);
 
   FRAME2.append("g")
     .attr(
@@ -65,30 +66,48 @@ submitButton.addEventListener("click", function (event) {
     .attr("cx", 105.55 + (x - 1) * 55.56)
     .attr("cy", 494.44 - (y - 1) * 55.56)
     .attr("r", 20)
-    .attr("class", "point");
+    .attr("class", "point")
+    .attr("class", "newCircle");
+
+  newCircles = document.querySelectorAll(".newCircle");
+  for (let i = 0; i < newCircles.length; i++) {
+    newCircles[i].addEventListener("click", lastClicked);
+  }
 });
 
-let round = document.getElementsByClassName("point");
-console.log(round.length);
+function lastClicked() {
+  const x = this.getAttribute("cx");
+  const y = this.getAttribute("cy");
+  this.classList.toggle("selected");
 
-for (let i = 0; i < round.length; i++) {
-  console.log("hi");
-  round[i].addEventListener("click", function () {
-    this.classList.toggle("selected");
+  let newText =
+    "Last point clicked: (" +
+    Math.round((x - 55.55) / 55.56) +
+    ", " +
+    Math.round(Math.abs(y - 550) / 55.56) +
+    ")";
 
-    const x = xInput.value;
-    const y = yInput.value;
-
-    let newText =
-      "Last point clicked: (" +
-      Math.round((x - 10) / 50) +
-      ", " +
-      Math.round(Math.abs(y - 510) / 50) +
-      ")";
-
-    document.getElementById("right_col_text").innerHTML = newText;
-  });
+  document.getElementById("right_col_text").innerHTML = newText;
 }
+
+// for (let i = 0; i < round.length; i++) {
+//   console.log("hi");
+//   round[i].addEventListener("click", function () {
+//     this.classList.toggle("selected");
+
+// const x = xInput.value;
+// const y = yInput.value;
+
+// let newText =
+//   "Last point clicked: (" +
+//   Math.round((x - 10) / 50) +
+//   ", " +
+//   Math.round(Math.abs(y - 510) / 50) +
+//   ")";
+
+// document.getElementById("right_col_text").innerHTML = newText;
+//   });
+// }
 
 var svg = d3.select(".svg2"),
   margin = 200,
@@ -161,7 +180,9 @@ d3.csv("data/bar-data.csv").then(function (data) {
     })
     .on("mouseover", function (d, i) {
       d3.select(this).attr("class", "highlight");
-      tooltip.html(`Amount: ${d}`).style("visibility", "visible");
+      tooltip
+        .html(`Amount: ${this.getAttribute("x")}`)
+        .style("visibility", "visible");
     })
     .on("mousemove", function (d) {
       tooltip
@@ -173,6 +194,3 @@ d3.csv("data/bar-data.csv").then(function (data) {
       tooltip.html(``).style("visibility", "hidden");
     });
 });
-
-// Call function
-build_interactive_plot();
