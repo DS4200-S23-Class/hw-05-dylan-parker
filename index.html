@@ -1,14 +1,50 @@
 <!DOCTYPE html>
-<html> 
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <script src="js/d3.v6.1.1/d3.min.js"></script>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
 
-<head>
-    <meta charset=utf-8/>
-</head>
+  <body>
+    <div id="main">
+      <div id="left_col">
+        <div id="vis2"></div>
+      </div>
+      <div id="right_col">
+        <p id="right_col_text"></p>
+        <form class="form">
+          <p>X</p>
+          <select id="x">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+          </select>
+          <p>Y</p>
+          <select id="y">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+          </select>
+          <button id="submit">Submit</button>
+        </form>
+      </div>
+    </div>
 
-
-<body>
-
-
-</body>
-
+    <script src="script.js"></script>
+  </body>
 </html>

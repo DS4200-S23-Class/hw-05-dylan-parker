@@ -1,0 +1,53 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#main__header {
+  text-align: center;
+}
+
+#right_col {
+  height: 100px;
+  width: 40%;
+}
+
+#left_col {
+  width: 60%;
+  margin-left: 30px;
+}
+
+#main {
+  display: flex;
+  flex-direction: row;
+}
+
+.point {
+  fill: blueviolet;
+}
+.point:hover {
+  fill: blue;
+}
+
+.form {
+  padding-top: 50px;
+  display: flex;
+}
+
+.point.selected {
+  stroke-width: 3px;
+  stroke: orange;
+}
+
+#x {
+  margin-top: 10px;
+  height: 20px;
+  margin-right: 10px;
+}
+#y {
+  margin-top: 10px;
+  height: 20px;
+}
+
+#ack {
+  text-align: center;
+}
