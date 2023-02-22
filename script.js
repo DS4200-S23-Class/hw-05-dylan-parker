@@ -68,16 +68,13 @@ submitButton.addEventListener("click", function (event) {
     .attr("class", "point");
 });
 
-const circle = document.querySelectorAll(".point");
+let round = document.getElementsByClassName("point");
 
-console.log(circle);
-for (var i = 0; i < circle.length; i++) {
-  circle[i].addEventListener("click", function () {
+for (let i = 0; i < round.length; i++) {
+  console.log("hi");
+  round[i].addEventListener("click", function () {
     this.classList.toggle("selected");
 
-    //   let cx = this.getAttributeNS(null, "cx");
-
-    //   let cy = this.getAttributeNS(null, "cy");
     const x = xInput.value;
     const y = yInput.value;
 

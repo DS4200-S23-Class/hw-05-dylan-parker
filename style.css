@@ -21,9 +21,6 @@ body {
   flex-direction: row;
 }
 
-.point {
-  fill: blueviolet;
-}
 .point:hover {
   fill: blue;
 }
